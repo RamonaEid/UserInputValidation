@@ -7,6 +7,7 @@ namespace UIV.Tests
     public class ValidatorTests
     {
         [TestMethod]
+        [TestCategory("Sad")]
         public void IsValid_WithEmpty_ReturnsFalse()
         {
             const string inputString = "";
@@ -19,6 +20,7 @@ namespace UIV.Tests
         }
 
         [TestMethod]
+        [TestCategory("Sad")]
         public void IsValid_LessThanLengthOfFive_ReturnsFalse()
         {
             const string inputString = "1234";
@@ -30,6 +32,7 @@ namespace UIV.Tests
         }
 
         [TestMethod]
+        [TestCategory("Sad")]
         public void IsValid_MoreThanLengthOfTwelve_ReturnsFalse()
         {
             const string inputString = "1234567890123";
@@ -41,6 +44,7 @@ namespace UIV.Tests
         }
 
         [TestMethod]
+        [TestCategory("Sad")]
         public void IsValid_WithNonAlphaNumeric_ReturnsFalse()
         {
             var inputString = "_abc1";
@@ -57,6 +61,7 @@ namespace UIV.Tests
         }
 
         [TestMethod]
+        [TestCategory("Sad")]
         public void IsValid_WithAllLetters_ReturnsFalse()
         {
             const string inputString = "abcde";
@@ -68,6 +73,7 @@ namespace UIV.Tests
         }
 
         [TestMethod]
+        [TestCategory("Sad")]
         public void IsValid_WithAllNumbers_ReturnsFalse()
         {
             const string inputString = "12345";
@@ -79,6 +85,7 @@ namespace UIV.Tests
         }
 
         [TestMethod]
+        [TestCategory("Happy")]
         public void IsValid_WithOneLetterAndNumbers_ReturnsTrue()
         {
             const string inputString = "a1234";
@@ -90,6 +97,7 @@ namespace UIV.Tests
         }
 
         [TestMethod]
+        [TestCategory("Happy")]
         public void IsValid_WithOneCapLetterAndNumbers_ReturnsTrue()
         {
             const string inputString = "A1234";
@@ -101,6 +109,7 @@ namespace UIV.Tests
         }
 
         [TestMethod]
+        [TestCategory("Happy")]
         public void IsValid_WithOneNumberAndLetters_ReturnsTrue()
         {
             const string inputString = "1abcd";
@@ -112,6 +121,7 @@ namespace UIV.Tests
         }
 
         [TestMethod]
+        [TestCategory("Happy")]
         public void IsValid_WithOneNumberAndCapLetters_ReturnsTrue()
         {
             const string inputString = "1ABCD";
@@ -123,6 +133,7 @@ namespace UIV.Tests
         }
 
         [TestMethod]
+        [TestCategory("Sad")]
         public void IsValid_WithTwoRepeatedBeginningLettersAndNumber_ReturnsFalse()
         {
             const string inputString = "aabc1";
@@ -134,6 +145,7 @@ namespace UIV.Tests
         }
 
         [TestMethod]
+        [TestCategory("Sad")]
         public void IsValid_WithTwoRepeatedBeginningCapLettersAndNumber_ReturnsFalse()
         {
             const string inputString = "AAbc1";
@@ -145,6 +157,7 @@ namespace UIV.Tests
         }
 
         [TestMethod]
+        [TestCategory("Sad")]
         public void IsValid_WithTwoRepeatedMiddleLetersAndNumber_ReturnsFalse()
         {
             const string inputString = "abbc1";
@@ -156,6 +169,7 @@ namespace UIV.Tests
         }
 
         [TestMethod]
+        [TestCategory("Sad")]
         public void IsValid_WithTwoRepeatedCapMiddleLetterAndNumber_ReturnsFalse()
         {
             const string inputString = "aBBc1";
@@ -167,6 +181,7 @@ namespace UIV.Tests
         }
 
         [TestMethod]
+        [TestCategory("Sad")]
         public void IsValid_WithTwoRepeatedLastLettersAndNumber_ReturnsFalse()
         {
             const string inputString = "ab1cc";
@@ -178,6 +193,7 @@ namespace UIV.Tests
         }
 
         [TestMethod]
+        [TestCategory("Sad")]
         public void IsValid_WithTwoRepeatedCapLastLettersandNumber_ReturnsFalse()
         {
             const string inputString = "ab1CC";
@@ -189,6 +205,7 @@ namespace UIV.Tests
         }
 
         [TestMethod]
+        [TestCategory("Sad")]
         public void IsValid_WithTwoRepeatedBeginninNumbersAndLetters_ReturnsFalse()
         {
             const string inputString = "11abc";
@@ -200,6 +217,7 @@ namespace UIV.Tests
         }
 
         [TestMethod]
+        [TestCategory("Sad")]
         public void IsValid_WithTwoRepeatedMiddleNumbersAndLetters_ReturnsFalse()
         {
             const string inputString = "a11bc";
@@ -211,6 +229,7 @@ namespace UIV.Tests
         }
 
         [TestMethod]
+        [TestCategory("Sad")]
         public void IsValid_WithTwoRepeatedLastNumbersAndLetters_ReturnsFalse()
         {
             const string inputString = "abc11";
@@ -222,6 +241,7 @@ namespace UIV.Tests
         }
 
         [TestMethod]
+        [TestCategory("Sad")]
         public void IsValid_WithThreeBeginningRepeatedLettersAndNumber_ReturnsFalse()
         {
             const string inputString = "aaab1";
@@ -233,6 +253,7 @@ namespace UIV.Tests
         }
 
         [TestMethod]
+        [TestCategory("Sad")]
         public void IsValid_WithThreeCapBeginningRepeatedLettersAndNumber_ReturnFalse()
         {
             const string inputString = "AAAb1";
@@ -244,6 +265,7 @@ namespace UIV.Tests
         }
 
         [TestMethod]
+        [TestCategory("Sad")]
         public void IsValid_WithThreeMiddleRepeatedLettersAndNumber_ReturnsFalse()
         {
             const string inputString = "abbb1";
@@ -255,6 +277,7 @@ namespace UIV.Tests
         }
 
         [TestMethod]
+        [TestCategory("Sad")]
         public void IsValid_WithThreeRepeatedLastLettersAndNumber_ReturnsFalse()
         {
             const string inputString = "a1BBB";
@@ -266,6 +289,7 @@ namespace UIV.Tests
         }
 
         [TestMethod]
+        [TestCategory("Sad")]
         public void IsValid_WithThreeRepeatedBeginningNumbersAndLetter_ReturnsFalse()
         {
             const string inputString = "1112a";
@@ -277,6 +301,7 @@ namespace UIV.Tests
         }
 
         [TestMethod]
+        [TestCategory("Sad")]
         public void IsValid_WithThreeRepeatedMiddleNumbersAndLetter_ReturnsFalse()
         {
             const string inputString = "a1112";
@@ -288,6 +313,7 @@ namespace UIV.Tests
         }
 
         [TestMethod]
+        [TestCategory("Sad")]
         public void IsValid_WithThreeRepeatedLastNumbersAndLetter_ReturnsFalse()
         {
             const string inputString = "ab111";
@@ -299,6 +325,7 @@ namespace UIV.Tests
         }
 
         [TestMethod]
+        [TestCategory("Sad")]
         public void IsValid_WithLongRepeatedLettersAndNumbers_ReturnsFalse()
         {
             const string inputString = "zabcdabcd123";
@@ -310,6 +337,7 @@ namespace UIV.Tests
         }
 
         [TestMethod]
+        [TestCategory("Sad")]
         public void IsValid_WithLongRepeatedNumbersAndLetters_ReturnFalse()
         {
             const string inputString = "z1234512345a";
@@ -321,6 +349,7 @@ namespace UIV.Tests
         }
 
         [TestMethod]
+        [TestCategory("Happy")]
         public void IsValid_WithNonSequentialRepeatedLettersAndNumber_ReturnsTrue()
         {
             const string inputString = "abcbacdedfe1";
@@ -332,6 +361,7 @@ namespace UIV.Tests
         }
 
         [TestMethod]
+        [TestCategory("Happy")]
         public void IsValid_WithLongSequentialNonAdjacentLettersAndNumbers_ReturnsTrue()
         {
             const string inputString = "zabcdyabcd12";
@@ -343,6 +373,7 @@ namespace UIV.Tests
         }
 
         [TestMethod]
+        [TestCategory("Happy")]
         public void IsValid_WithLongSequentialNonAdjecentNumbersAndLetters_ReturnsTrue()
         {
             const string inputString = "0123491234ab";
@@ -354,6 +385,7 @@ namespace UIV.Tests
         }
 
         [TestMethod]
+        [TestCategory("Happy")]
         public void IsValid_WithStartNumberAndLettersLengthOfTwelve_ReturnsTrue()
         {
             const string inputString = "1a2b3c4d5e6f";
@@ -365,6 +397,7 @@ namespace UIV.Tests
         }
 
         [TestMethod]
+        [TestCategory("Happy")]
         public void IsValid_WithStartLetterAndNumbersLengthOfTwelve_ReturnsTrue()
         {
             const string inputString = "a1b2c3d4e5f6";
