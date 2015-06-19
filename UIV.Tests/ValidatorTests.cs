@@ -408,5 +408,17 @@ namespace UIV.Tests
             Assert.AreEqual(expected, actual);
         }
 
+        [TestMethod]
+        [TestCategory("Happy")]
+        public void IsValid_WithMixedCaseLettersAndNumberLengthOfTwelve_ReturnsTrue()
+        {
+            const string inputString = "WeRtYuOpAsD1";
+            const bool expected = true;
+
+            var actual = Validator.IsValid(inputString);
+
+            Assert.AreEqual(expected, actual);
+        }
+
     }
 }
