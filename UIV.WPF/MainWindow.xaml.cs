@@ -69,16 +69,7 @@ namespace UIV.WPF
 
         private string SetMessage(bool result)
         {
-            var messageResult = "";
-            if (result)
-            {
-                messageResult = "Bingo!";
-            }
-            else
-            {
-                messageResult = "Oops!";
-            }
-            return messageResult;
+            return result ? "Bingo!" : "Oops!";
         }
 
         private bool Validate(IValidatedItem inputString)
