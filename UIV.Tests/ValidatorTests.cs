@@ -246,6 +246,7 @@ namespace UIV.Tests
             AssertAreEqual("WeRtYuOpAsD1", true);
         }
 
+
         private static void AssertAreEqual(string inputString, bool expected)
         {
             var actual = Validator.IsValid(inputString);
