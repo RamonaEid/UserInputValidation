@@ -1,0 +1,46 @@
+﻿@using UIV.MVC.Models
+@model UserInputViewModel
+@{
+    ViewBag.Title = "Home Page";
+}
+
+<div class="row">
+    <div class="col-md-12">
+        <h3>
+            <ol>
+                <li>Length: From 5 to 12 alphanumeric characters</li>
+                <li>At least one number and one letter</li>
+                <li>No consecutive sequential repeating characters</li>
+            </ol>
+        </h3>
+    </div>
+    <div class="col-md-6">
+        @using (Html.BeginForm("Index", "Home", FormMethod.Post))
+        {
+            @Html.HiddenFor(m => m.Result)
+            @Html.HiddenFor(m => m.ResultList)
+            @Html.HiddenFor(m => m.Counter)
+            @Html.TextBoxFor(m => m.InputStr, new { @class = "form-control" });
+            @Html.ValidationMessageFor(m => m.InputStr, "", new { @class = "text-danger" })        ;
+            <br />
+            <span class="text-danger">@Html.DisplayFor(m => m.Result)</span>
+            <br />
+            <br />
+            <p><input class="btn btn-primary" type="submit" value="Validate" /></p>
+        }
+    </div>
+    <div class="col-md-6" style="background-color: bisque">
+        <p>Validated List:</p>
+        <ul id="listResults"></ul>
+    </div>
+</div>
+
+@section scripts{
+    <script>
+        $(function () {
+            var listResults = $("#ResultList").val();
+            listResults = "<li>" + listResults.replace(/,/g, "</li><li>") + "</li>";
+            $("#listResults").append(listResults);
+        });
+    </script>
+}
