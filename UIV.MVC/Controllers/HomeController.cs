@@ -19,37 +19,50 @@ namespace UIV.MVC.Controllers
         public ActionResult Index(UserInputViewModel model)
         {
             var result = Validator.IsValid(model.InputStr);
+            var _model = ProcessModel(model, result);
+            
+            ModelState.Clear();
+            return View(_model);
+        }
 
-            if (!ModelState.IsValid)
-            {
-                model.Result = string.Empty;
-                return View(model);
-            }
+        private UserInputViewModel ProcessModel(UserInputViewModel model, bool result)
+        {
+            var _model = model;
 
-            if (!result)
+            if (ModelState.IsValid)
             {
-                model.Result = "Oops!  Try Again!";
-                return View(model);
-            }
+                if (result)
+                {
+                    if (_model.Counter == null)
+                    {
+                        _model.Result = "Bingo!  It Validates!";
+                        _model.Counter = "two";
+                    }
+                    else
+                    {
+                        _model.Result = "You are a Winner!";
+                        _model.Counter = null;
+                    }
 
-            if (model.Counter == null)
-            {
-                model.Result = "Bingo!  It Validates!";
-                model.Counter = "two";
+                    ProcessResultList(_model);
+
+                }
+                else
+                {
+                    _model.Result = "Oops!  Try Again!";
+                }
             }
             else
             {
-                model.Result = "You are a Winner!";
-                model.Counter = null;
+                _model.Result = "Oops!  Try Again!";
             }
 
-            ProcessList(model);
-            ModelState.Clear();
-            return View(model);
+            return _model;
         }
 
-        private static void ProcessList(UserInputViewModel model)
+        private static void ProcessResultList(UserInputViewModel model)
         {
+            if (model.Result.Contains("Oops")) return;
             var oldList = model.ResultList;
             if (oldList == null)
                 oldList += model.InputStr;
@@ -58,6 +71,7 @@ namespace UIV.MVC.Controllers
             model.ResultList = oldList;
         }
 
+        
         public ActionResult About()
         {
             ViewBag.Message = "Your application description page.";

@@ -20,10 +20,10 @@
             @Html.HiddenFor(m => m.Result)
             @Html.HiddenFor(m => m.ResultList)
             @Html.HiddenFor(m => m.Counter)
-            @Html.TextBoxFor(m => m.InputStr, new { @class = "form-control" });
+            @Html.TextBoxFor(m => m.InputStr, new { @class = "form-control", @id = "inputStr" });
             @Html.ValidationMessageFor(m => m.InputStr, "", new { @class = "text-danger" })        ;
             <br />
-            <span class="text-danger">@Html.DisplayFor(m => m.Result)</span>
+            <span id="resultDisplay" class="text-danger">@Html.DisplayFor(m => m.Result)</span>
             <br />
             <br />
             <p><input class="btn btn-primary" type="submit" value="Validate" /></p>
@@ -36,11 +36,7 @@
 </div>
 
 @section scripts{
-    <script>
-        $(function () {
-            var listResults = $("#ResultList").val();
-            listResults = "<li>" + listResults.replace(/,/g, "</li><li>") + "</li>";
-            $("#listResults").append(listResults);
-        });
-    </script>
+    
+    <script src="~/Scripts/site.js"></script>
+    
 }
