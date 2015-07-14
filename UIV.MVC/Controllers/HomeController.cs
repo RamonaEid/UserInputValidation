@@ -25,46 +25,6 @@ namespace UIV.MVC.Controllers
             return View(_model);
         }
 
-        private UserInputViewModel ProcessModel(UserInputViewModel model, bool result)
-        {
-            var _model = model;
-            if (ModelState.IsValid)
-            {
-                if (result)
-                {
-                    if (_model.Counter == null)
-                    {
-                        _model.Result = "Bingo!  It Validates!";
-                        _model.Counter = "two";
-                    }
-                    else
-                    {
-                        _model.Result = "You are a Winner!";
-                        _model.Counter = null;
-                    }
-                    ProcessResultList(_model);
-                }
-                else
-                    _model.Result = "Oops!  Try Again!";
-            }
-            else
-                _model.Result = "Oops!  Try Again!";
-
-            return _model;
-        }
-
-        private static void ProcessResultList(UserInputViewModel model)
-        {
-            if (model.Result.Contains("Oops")) return;
-            var oldList = model.ResultList;
-            if (oldList == null)
-                oldList += model.InputStr;
-            else
-                oldList += "," + model.InputStr;
-            model.ResultList = oldList;
-        }
-
-        
         public ActionResult About()
         {
             ViewBag.Message = "Your application description page.";
@@ -78,5 +38,51 @@ namespace UIV.MVC.Controllers
 
             return View();
         }
+
+
+        private UserInputViewModel ProcessModel(UserInputViewModel model, bool result)
+        {
+            var _model = model;
+            if (ModelState.IsValid)
+            {
+                if (result)
+                {
+                    ProcessSuccessMessage(_model);
+                    ProcessResultList(_model);
+                }
+                else
+                    _model.Result = "Oops!  Try Again!";
+            }
+            else
+                _model.Result = "Oops!  Try Again!";
+
+            return _model;
+        }
+
+        private static void ProcessSuccessMessage(UserInputViewModel _model)
+        {
+            if (_model.Counter == null)
+            {
+                _model.Result = "Bingo!  It Validates!";
+                _model.Counter = "two";
+            }
+            else
+            {
+                _model.Result = "You are a Winner!";
+                _model.Counter = null;
+            }
+        }
+
+        private static void ProcessResultList(UserInputViewModel model)
+        {
+            if (model.Result.Contains("Oops")) return;
+            var oldList = model.ResultList;
+            if (oldList == null)
+                oldList += model.InputStr;
+            else
+                oldList += "," + model.InputStr;
+            model.ResultList = oldList;
+        }
+
     }
 }
