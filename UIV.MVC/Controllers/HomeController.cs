@@ -28,7 +28,6 @@ namespace UIV.MVC.Controllers
         private UserInputViewModel ProcessModel(UserInputViewModel model, bool result)
         {
             var _model = model;
-
             if (ModelState.IsValid)
             {
                 if (result)
@@ -43,19 +42,13 @@ namespace UIV.MVC.Controllers
                         _model.Result = "You are a Winner!";
                         _model.Counter = null;
                     }
-
                     ProcessResultList(_model);
-
                 }
                 else
-                {
                     _model.Result = "Oops!  Try Again!";
-                }
             }
             else
-            {
                 _model.Result = "Oops!  Try Again!";
-            }
 
             return _model;
         }
