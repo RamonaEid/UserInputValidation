@@ -10,7 +10,11 @@
 
     var resultDisplayText = $("#resultDisplay").html().toString();
     if (resultDisplayText.indexOf("Oops") == -1) {
-        $("#resultDisplay").attr("class", "text-success lead");
+        // text-success lead
+        if (resultDisplayText.indexOf("Bingo") == -1)
+            $("#resultDisplay").attr("class", "text-winner lead");
+        else
+            $("#resultDisplay").attr("class", "text-bingo lead");
     }
 
 });

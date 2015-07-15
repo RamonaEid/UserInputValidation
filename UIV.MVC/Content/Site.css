@@ -23,6 +23,15 @@ textarea {
     max-width: 280px;
 }
 
+.text-oops {
+    color: red;
+}
+.text-bingo {
+    color: blue;
+}
+.text-winner {
+    color: green;
+}
 
 /*
     Override the bootstrap btn-primary colors
