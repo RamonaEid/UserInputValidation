@@ -7,4 +7,10 @@
         $(this).val("");
         $("#resultDisplay").html("");
     });
+
+    var resultDisplayText = $("#resultDisplay").html().toString();
+    if (resultDisplayText.indexOf("Oops") == -1) {
+        $("#resultDisplay").attr("class", "text-success lead");
+    }
+
 });

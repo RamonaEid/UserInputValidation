@@ -22,3 +22,50 @@ select,
 textarea {
     max-width: 280px;
 }
+
+
+/*
+    Override the bootstrap btn-primary colors
+
+*/
+.btn-primary {
+    color: #333;
+    background-color: bisque;
+    border-color: burlywood;
+}
+.btn-primary:hover {
+    color: #333;
+    background-color: burlywood;
+    border-color: bisque;
+}
+.btn-primary:focus,
+.btn-primary:active,
+.btn-primary.active,
+.open > .dropdown-toggle.btn-primary {
+    color: #333;
+    background-color: burlywood;
+    border-color: bisque;
+}
+.btn-primary:active,
+.btn-primary.active,
+.open > .dropdown-toggle.btn-primary {
+  background-image: none;
+}
+.btn-primary.disabled,
+.btn-primary[disabled],
+fieldset[disabled] .btn-primary,
+.btn-primary.disabled:hover,
+.btn-primary[disabled]:hover,
+fieldset[disabled] .btn-primary:hover,
+.btn-primary.disabled:focus,
+.btn-primary[disabled]:focus,
+fieldset[disabled] .btn-primary:focus,
+.btn-primary.disabled:active,
+.btn-primary[disabled]:active,
+fieldset[disabled] .btn-primary:active,
+.btn-primary.disabled.active,
+.btn-primary[disabled].active,
+fieldset[disabled] .btn-primary.active {
+    background-color: bisque;
+    border-color: burlywood;
+}

@@ -23,7 +23,7 @@
             @Html.TextBoxFor(m => m.InputStr, new { @class = "form-control", @id = "inputStr" });
             @Html.ValidationMessageFor(m => m.InputStr, "", new { @class = "text-danger" })        ;
             <br />
-            <span id="resultDisplay" class="text-danger">@Html.DisplayFor(m => m.Result)</span>
+            <span id="resultDisplay" class="text-danger lead">@Html.DisplayFor(m => m.Result)</span>
             <br />
             <br />
             <p><input class="btn btn-primary" type="submit" value="Validate" /></p>
